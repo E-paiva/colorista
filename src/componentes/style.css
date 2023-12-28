@@ -1,0 +1,87 @@
+body{
+    background-color: #292929;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1 {
+    color: white;
+    font-family: monospace;
+    padding-top: 24px;
+}
+.wrapper-color{
+    display: flex;
+    align-self: center;
+    height: 60vh;
+    flex-direction: row; 
+    justify-content: center;
+    padding: 24px;
+
+}
+
+.btn-gerarpaleta{
+    background-color: white;
+    padding: 0.5rem;
+    border: 2px #fff solid;
+    width: 100px;
+    color:  #292929;
+    border-radius: 8px;
+    
+}
+
+/*.box-color{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    align-items: center;
+    width: 120px;
+
+   
+
+} 
+.box-color button{
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 2px #fff solid;
+    width: 100px;
+    color: white;
+    border-radius: 10px;
+}*/
+
+
+.box-color1, .box-color2, .box-color3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    align-items: center;
+    width: 120px;
+} 
+.box-color0{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    align-items: center;
+    width: 120px;
+    border-radius:24px 0   0 24px;
+} 
+.box-color4{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    align-items: center;
+    width: 120px;
+    border-radius: 0 24px 24px 0;
+} 
+
+.box-color1 button, .box-color2 button, .box-color3 button, .box-color4 button,.box-color0 button{
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 2px #fff solid;
+    width: 100px;
+    color: white;
+    border-radius: 8px;
+}
+
+
