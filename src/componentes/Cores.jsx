@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import "./style.css"
+import styles from "./style.css"
+// import "./style.css"
 
 //import { ToastContainer, toast } from 'react-toastify';
 //import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +12,8 @@ export function Cores() {
     }
 
 
+    const [isClient, setIsClient] = useState(false)
+    
     const [cores, setCores] = useState([
         {
             cor: geraCor(),
@@ -42,15 +45,10 @@ export function Cores() {
         setCores(novoState);}
     }
 
-    // useEffect(()=>{   
-    //     function handleKeyPress(event) {
-    //         if (event.key !== ' ') return
+   
+   
+    useEffect(() => {setIsClient(true)}, [])
 
-    //         console.log("hello")
-
-    //     }
-    //     document.addEventListener(onkeydown, handleKeyPress)
-    // },[])
     useEffect(() => {
         
         function handleKeyPress(event) {
@@ -62,7 +60,6 @@ export function Cores() {
         document.removeEventListener("keydown", handleKeyPress);
         document.addEventListener("keydown", handleKeyPress);
         
-       
       }, [cores]);
 
 
@@ -75,42 +72,28 @@ export function Cores() {
 
 
 
-    return (<>
+    return (<>{isClient ? 
         
-        <div >
-            <h1>Colorista</h1>
-            <div className="wrapper-color" >
+        <div className="container" >
+            
+            <div  className="wrapper-color" >
                 {cores.map((el, i) =>
                     <div
-                        className={"box-color"+i}
+                        //  className={styles.boxColor}
+                        className={"box-color"}
+                        
                         style={{ backgroundColor: el.cor }}
                         key={i}>
-                        {/* <span {onClick={() => {
-                        toast.success(`Cor ${el.hex} copiada para o clipboard`);
-                        navigator.clipboard.writeText(el.hex)}}}>{el.cor}</span> */}
+                       
                         {el.cor}
-                        <button onClick={() => handleClick(i)}>{el.isblocked ? "desbloquear" : "bloquear"}</button>
+                        <button className="btn" onClick={() => handleClick(i)}>{el.isblocked ? "desbloquear" : "bloquear"}</button>
                     </div>
                 )}</div>
 
             <button onClick={() => geraPaleta()}
             className="btn-gerarpaleta"> Gerar paleta</button>
 
-
-{/*<ToastContainer
-                position="bottom-right"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-                        />*/}
-
-        </div>
-    </>
+        </div>: null}
+        </>
     )
 }
